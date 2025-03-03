@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 def find_file(filename: str) -> str:
     # start by figuring out where the program started
@@ -10,6 +10,9 @@ def find_file(filename: str) -> str:
                 return str(os.path.join(root, file))
     return ''
 
+def get_python_version() -> str:
+    return f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}'
+
 def main():
     full_path = find_file('simple text file.txt')
     print(f'Full path: {full_path}')
@@ -19,4 +22,5 @@ def main():
             print(line.strip())
 
 if __name__ == '__main__':
+    print(f'Python version: {get_python_version()}')
     main()
