@@ -1,4 +1,6 @@
-import os, sys
+import os
+import sys
+
 
 def find_file_from_current(filename: str) -> str:
     """
@@ -16,8 +18,10 @@ def find_file_from_current(filename: str) -> str:
                 return str(os.path.join(root, file))
     return ''
 
+
 def get_python_version() -> str:
     return f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}'
+
 
 def main():
     full_path = find_file_from_current('simple text file.txt')
@@ -26,6 +30,7 @@ def main():
     with open(full_path, 'r') as text_file:
         for line in text_file:
             print(line.strip())
+
 
 if __name__ == '__main__':
     print(f'Python version: {get_python_version()}')
